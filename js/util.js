@@ -27,3 +27,25 @@ function merge(var_args) {
 function die() {
 	
 }
+
+/**
+* @export
+* @method _btoa: encode string to base64
+* @param {string} str: string to encode
+*/
+function _btoa(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function toSolidBytes(match, p1) {
+		return String.fromCharCode('0x' + p1);
+    }));
+}
+
+/**
+* @export
+* @method _atob: decode string from base64
+* @param {string} str: string to decode
+*/
+function _atob(str) {
+    return decodeURIComponent(atob(str).split('').map(function(c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(""));
+}
