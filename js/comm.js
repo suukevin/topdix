@@ -38,7 +38,7 @@ class Comm {
 	}*/
 	
 	static async urlrequest(url, options) {
-		return await this.request(url, merge(options, {"headers": {"Access-Control-Allow-Origin": "*", "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"}}));
+		return await this.request(url, merge(options, {"headers": {"Content-Type": "application/x-www-form-urlencoded; charset=UTF-8"}}));
 	}
 	
 	static async jwtrequest(url, options, jwt) {

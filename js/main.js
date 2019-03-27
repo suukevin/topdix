@@ -9,11 +9,11 @@ class Main {
 	}
 	
 	async get(url) {
-		return await Comm.urlrequest("https://localhost:44444/" + this._name + url, {});
+		return await Comm.urlrequest("https://node.nicopr.fr/" + this._name + url, {});
 	}
 	
 	async post(url, data) {
-		return await Comm.urlrequest("https://localhost:44444/" + this._name + url, {"method": "POST", "data": data});
+		return await Comm.urlrequest("https://node.nicopr.fr/" + this._name + url, {"method": "POST", "data": data});
 	}
 	
 }
