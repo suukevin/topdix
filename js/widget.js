@@ -10,7 +10,7 @@ class LeMondeWidget extends Widget {
 		this.footer = false;
 		this.sizeX = 2;
 		this.sizeY = 0.5;
-		this.radius = 10;
+		this.radius = 15;
 	}
 	
 	async ready() {
@@ -75,7 +75,7 @@ class LeMondeController extends WidgetController {
 		let domstr = _atob(result.response.dom); // decode result
 		let parser = new DOMParser(); // init dom parser
 		let dom = parser.parseFromString(domstr, "text/html"); // inject result
-		let article = new xph().ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[1]/a').firstResult; // find interesting things
+		let article = new xph().doc(dom).ctx(dom).craft('//*[@id="en-continu"]/div/ul/li[1]/a').firstResult; // find interesting things
 		this.mvc.view.update(article.textContent, article.getAttribute("href"));
 	}
 	
